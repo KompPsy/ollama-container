@@ -25,7 +25,7 @@ Before running the installation scripts, ensure your system meets the following 
       ### Install with Apt:
       #### Configure the repository
 
-    ```bash
+    ``bash
    curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
     | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
    curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
@@ -35,7 +35,6 @@ Before running the installation scripts, ensure your system meets the following 
         ```
 
       ### Install the NVIDIA Container Toolkit packages
-        ```
 sudo apt-get install -y nvidia-container-toolkit
    ``
 Install with Yum or Dnf
@@ -134,7 +133,7 @@ docker-compose down
 File Path:
     ```bash
     ./ollama-container/ollama.sh
-        ```
+```
 
 This bash script, `ollama.sh`, is designed to simplify the management of an Ollama instance running inside a Docker container. It provides commands to start, stop, and interact with the Ollama service. The script ensures that the necessary data directory for Ollama models exists and attempts to set appropriate permissions. It utilizes a Docker Compose file located at `./ollama-docker/docker-compose.yaml` to define and manage the Ollama service.
 
@@ -152,5 +151,5 @@ The script is executed from the command line, followed by an option specifying t
 
 ```bash
 ./ollama.sh [option]
-        ```
+```
 # ollama-container
