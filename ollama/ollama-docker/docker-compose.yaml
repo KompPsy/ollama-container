@@ -1,0 +1,28 @@
+#version: '3.8' # Specify the Docker Compose file format version
+
+services:
+  ollama:
+    build:
+      context: . # Look for the Dockerfile in the current directory
+      dockerfile: Dockerfile # Specify the name of your Dockerfile
+    container_name: ollama-container-ollama # A specific name for your container
+    ports:
+      - "11435:11434" # Map host port 11434 to container port 11434
+    volumes:
+      # This maps a specific host directory to the container's models directory.
+      # Ensure /opt/app/ollama_data exists on your host machine and has appropriate permissions.
+      #- /opt/app/ollama-container/ollama_data:/usr/share/ollama/.ollama/models
+      - /opt/app/ollama-container/ollama_data:/home/ollama/.ollama/models
+    environment: # Add your environment variables here
+      - PATH=$PATH # This will inherit the PATH from the environment where docker compose is run
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_MAX_LOADED=2
+      - OLLAMA_CONTINUOUS_BATCHING=true
+      - OLLAMA_LOG_LEVEL=debug
+      - OLLAMA_FLASH_ATTENTION=1
+      - OLLAMA_ORIGINS=*
+      - OLLAMA_DISABLE_MMAP=false
+    restart: unless-stopped # Automatically restart the container if it stops, unless manually stopped
+
+# The named volume 'ollama_models_data' is no longer needed since a host path is used.
+

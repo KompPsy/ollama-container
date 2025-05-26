@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_COMPOSE_FILE="./ollama/ollama-docker/docker-compose.yaml"
+DOCKER_COMPOSE_FILE="./ollama-nvidia/ollama-docker/docker-compose.yaml"
 OLLAMA_DATA_DIR="/opt/app/ollama-container/ollama_data"
 OLLAMA_SERVICE_NAME="ollama"
 OLLAMA_CONTAINER_NAME="ollama-container-ollama" # Added for docker exec

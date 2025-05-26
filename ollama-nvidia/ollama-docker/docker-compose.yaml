@@ -6,6 +6,14 @@ services:
       context: . # Look for the Dockerfile in the current directory
       dockerfile: Dockerfile # Specify the name of your Dockerfile
     container_name: ollama-container-ollama # A specific name for your container
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              #device_ids: ['0']
+              count: 1
+              capabilities: [gpu]
     ports:
       - "11435:11434" # Map host port 11434 to container port 11434
     volumes:
